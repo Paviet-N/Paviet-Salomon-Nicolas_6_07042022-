@@ -24,6 +24,29 @@ const updateGallery = (resMedia) =>{
         });
 }
 
+const updateLikes = () =>{
+    const likes = document.querySelectorAll(".likes")
+    likes.forEach(element => {
+        element.addEventListener("click", function(){
+            let currentLikes = element.children[0].innerHTML
+            currentLikes = parseInt(currentLikes)
+            currentLikes ++;
+            element.children[0].innerHTML = currentLikes;
+            totalLikes();
+    })
+    });
+}
+
+const totalLikes = () =>{
+    const likes = document.querySelectorAll(".likes")
+    let totalLikes = 0
+    likes.forEach(element => {
+       totalLikes += parseInt(element.children[0].innerHTML);
+    })
+    const totalLikesBloc = document.querySelector(".totalLikes")
+    totalLikesBloc.innerHTML = ` <p>${totalLikes}</p>`
+}
+
 const init = async() => {
     const id = getIdPhotographers();
     const { photographers } = await getPhotographers();
@@ -33,6 +56,8 @@ const init = async() => {
     const resMedia = media.filter(media => media.photographerId == id );
     displayCard(result[0]);
     updateGallery(resMedia);
+    updateLikes();
+    totalLikes();
 }
 
 
