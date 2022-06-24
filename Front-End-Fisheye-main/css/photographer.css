@@ -101,4 +101,10 @@ form input {
 .bloc-media img{
     width: 200px;
     height: 200px;
+    object-fit: cover;
+}
+.bloc-media video{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }

@@ -27,15 +27,6 @@ class Photographer{
         this.portrait = data.portrait
 
     }
-    addMedia (media){
-        this.image = media.image
-        if(!media.image)
-        {
-            this.image = media.video
-        }
-        this.title = media.title
-        this.likes = media.likes
-    }
 
     createHtml(){
         return `
@@ -74,18 +65,4 @@ class Photographer{
         `
     }
 
-    createMediaHtml(){
-        return`
-        <div class="bloc-media">
-        <img src="../assets/SamplePhotos/${this.name}/${this.image}">
-            <div class="info-media">
-                <p>${this.title}</p>
-                <div class="likes">
-                    <p>${this.likes}</p>
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-            </div>
-        </div>
-        `
-    }
 }
