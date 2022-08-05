@@ -6,6 +6,5 @@ async function getPhotographers() {
         console.error('Une erreur est survenue pendant la lecture des données.');
         console.error(error);
     });
-    console.log(getData);
     return getData
 }

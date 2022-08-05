@@ -14,7 +14,21 @@ class Image {
     createHtml(){
         return`
         <div class="bloc-media">
-        <img src="../assets/SamplePhotos/${this.photographerId}/${this.image}" alt="${this.title}">
+        <img tabindex="6" src="../assets/SamplePhotos/${this.photographerId}/${this.image}" alt="${this.title}">
+            <div class="info-media">
+                <p>${this.title}</p>
+                <div tabindex="6" class="likes" aria-label="ajouter un like">
+                    <p>${this.likes}</p>
+                    <i class="far fa-heart" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        `
+    }
+    createLightBox(){
+        return`
+        <div class="blocLightBox hide">
+        <img src="../assets/SamplePhotos/${this.photographerId}/${this.image}" alt="${this.title}"> 
             <div class="info-media">
                 <p>${this.title}</p>
                 <div class="likes">
@@ -41,7 +55,21 @@ class Video{
 createHtml(){
     return`
     <div class="bloc-media">
-    <video src="../assets/SamplePhotos/${this.photographerId}/${this.video}" alt="${this.title}"></video>
+    <video tabindex="6" src="../assets/SamplePhotos/${this.photographerId}/${this.video}" alt="${this.title}"></video>
+        <div class="info-media">
+            <p>${this.title}</p>
+            <div tabindex="6" class="likes">
+                <p>${this.likes}</p>
+                <i class="far fa-heart" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    `
+}
+createLightBox(){
+    return`
+    <div class="blocLightBox hide">
+   <video src="../assets/SamplePhotos/${this.photographerId}/${this.video}" alt="${this.title}"></video>
         <div class="info-media">
             <p>${this.title}</p>
             <div class="likes">

@@ -1,12 +1,139 @@
-#contact_modal {
-    display: none;
+body{
+    position: relative; 
+}
+main{
+    width: 1240px;
+    margin: auto;
+}
+.mainHeader{
+    width: 1240px;
+}
+.logo {
+    height: 50px;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1
+	
+}
+#contact_modal{
+    width: 669px;
+    height: 90%;
+    margin:auto;
+    margin-top: 2.5%;
+}
+.contact_button {
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    width: 170px;
+    height: 69px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contact_button:hover{
+    background-color: #D3573C;
+}
+.blocButtonContact{
+    width: 92%;
+    margin: auto;
+}
+.modal {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 100%;
+    height: 100%;
 }
 
+.modal header {
+    width: 90%;
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.modal header img {
+    cursor: pointer;
+    width: 30px;
+}
+
+.modal header h2 {
+    font-size: 40px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+}
+.blocTopHeaderModal{
+    display: flex;
+    justify-content: space-between;
+}
+.photographersNameModal{
+    font-size: 40px;
+    font-weight: 400;
+}
+form {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    margin: auto;
+    margin-bottom: 26px;
+}
+
+form label {
+    color: #312E2E;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+form input {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+}
+form textarea {
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 140px;
+    max-height: 140px;
+    border: none;
+    border-radius: 5px;
+}
 .photograph-header {
     background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+    height: 313px;
+    width: 1240px;
+    margin: auto;
     display: flex;
+    margin-bottom: 20px;
+}
+label{
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 20px;
+}
+#media-sort{
+    margin-bottom: 40px;
+    width: 170px;
+    height: 69px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color:rgba(144, 28, 28, 1);
+    border-radius: 5px;
+    border-color: transparent;
 }
 .blocsCard{
     width: 33.3%;
@@ -16,95 +143,54 @@
     justify-content: center;
     align-items: center;
 }
+.blocsCard:focus{
+        color: #D3573C;
+}
+.blocsCard h1{
+    font-size: 64px;
+    color: #DB8876;
+    margin-bottom: 0;
+    width: 90%;
+}
+.blocsCard p{
+    font-size: 18px;
+    color: rgba(82, 82, 82, 1);
+    width: 90%;
+    margin: 0;
+}
+.infoCityCard{
+    font-size: 24px;
+    color: rgba(144, 28, 28, 1);
+}
 .photograph-header img{
     width: 200px;
     height: 200px;
     border-radius: 100px;
     object-fit: cover;
 }
-.contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
-}
-
-.modal header {
-    justify-content: space-between;
-    width: 100%;
-}
-
-.modal header img {
-    cursor: pointer;
-}
-
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-}
-
-form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-form label {
-    color: #312E2E;
-    font-size: 36px;
-}
-
-form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
-}
-
-form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
-}
 
 .photograph-media{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 .bloc-media{
     width: 350px;
-    height: 350px;
+    height: 450px;
 }
 .bloc-media img{
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 300px;
     object-fit: cover;
 }
 .bloc-media video{
-    width: 200px;
-    height: 200px;
+    width: 350px;
+    height: 300px;
     object-fit: cover;
+}
+.hide{
+    display: none;
+}
+.blocLightBox img,.blocLightBox video{
+    width: 500px;
 }
