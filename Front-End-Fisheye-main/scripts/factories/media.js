@@ -27,14 +27,11 @@ class Image {
     }
     createLightBox(){
         return`
+        
         <div class="blocLightBox hide">
         <img src="../assets/SamplePhotos/${this.photographerId}/${this.image}" alt="${this.title}"> 
             <div class="info-media">
                 <p>${this.title}</p>
-                <div class="likes">
-                    <p>${this.likes}</p>
-                    <i class="far fa-heart" aria-hidden="true"></i>
-                </div>
             </div>
         </div>
         `
@@ -72,10 +69,6 @@ createLightBox(){
    <video src="../assets/SamplePhotos/${this.photographerId}/${this.video}" alt="${this.title}"></video>
         <div class="info-media">
             <p>${this.title}</p>
-            <div class="likes">
-                <p>${this.likes}</p>
-                <i class="far fa-heart" aria-hidden="true"></i>
-            </div>
         </div>
     </div>
     `

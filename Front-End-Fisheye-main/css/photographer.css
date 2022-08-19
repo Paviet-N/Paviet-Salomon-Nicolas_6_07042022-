@@ -1,4 +1,6 @@
 body{
+    width: 100%;
+    height: 100%;
     position: relative; 
 }
 main{
@@ -26,6 +28,8 @@ main{
 #contact_modal{
     width: 669px;
     height: 90%;
+    min-height: 550px;
+    max-height: 550px;
     margin:auto;
     margin-top: 2.5%;
 }
@@ -56,7 +60,8 @@ main{
 
 .modal header {
     width: 90%;
-    height: 110px;
+    height: 80px;
+    max-height: 80px;
     display: flex;
     flex-direction: column;
     padding-top: 15px;
@@ -69,7 +74,7 @@ main{
 }
 
 .modal header h2 {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
     text-align: center;
     margin: 0;
@@ -79,7 +84,7 @@ main{
     justify-content: space-between;
 }
 .photographersNameModal{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
 }
 form {
@@ -92,21 +97,21 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 400;
 }
 
 form input {
     width: 100%;
-    height: 45px;
+    height: 28px;
     border: none;
     border-radius: 5px;
 }
 form textarea {
     min-width: 100%;
     max-width: 100%;
-    min-height: 140px;
-    max-height: 140px;
+    min-height: 80px;
+    max-height: 80px;
     border: none;
     border-radius: 5px;
 }
@@ -191,6 +196,54 @@ label{
 .hide{
     display: none;
 }
+.lightBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.lightBoxContainer{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+
 .blocLightBox img,.blocLightBox video{
     width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+.blocLightBox p{
+    width: 100%;
+    text-align: center;
+}
+.blocButton{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    height: 550px;
+    width: 640px;
+}
+.blocButtonBis{
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    height: 550px;
+}
+
+.buttonLightBox{
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.closeButton{
+    margin-bottom: 213px;
+}
+.prevButton{
+    margin-top: -50px;
 }

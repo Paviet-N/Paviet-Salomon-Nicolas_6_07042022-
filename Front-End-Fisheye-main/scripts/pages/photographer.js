@@ -26,6 +26,7 @@ const updateGallery = (resMedia) =>{
 const mediaEvent = () =>{
     const media = document.querySelectorAll(".bloc-media img, .bloc-media video")
     const main = document.querySelector("main")
+    const mainHeader = document.querySelector(".mainHeader")
     media.forEach(mediaCliked =>{
         mediaCliked.addEventListener("click",() => {
             const mediaLightBox = document.querySelectorAll(".lightBoxContainer img, .lightBoxContainer video ")
@@ -36,6 +37,7 @@ const mediaEvent = () =>{
                     lightBox.classList.toggle("hide")
                     mediaHide.parentNode.classList.toggle("hide")
                     main.classList.toggle("hide")
+                    mainHeader.classList.toggle("hide")
                     document.addEventListener('keydown', nextPicture)
                 }
                 
@@ -131,6 +133,7 @@ const closeLightBox = () =>{
     const blocLightBox = document.querySelectorAll(".blocLightBox")
     const lightBox = document.querySelector(".lightBox");
     const main = document.querySelector("main")
+    const mainHeader = document.querySelector(".mainHeader")
 
     buttonClose.addEventListener("click", function(){
         blocLightBox.forEach(element => {
@@ -138,6 +141,7 @@ const closeLightBox = () =>{
         })
         lightBox.classList.add("hide")
         main.classList.remove("hide")
+        mainHeader.classList.remove("hide")
         document.removeEventListener('keydown',nextPicture)
     })
 

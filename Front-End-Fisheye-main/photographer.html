@@ -10,6 +10,9 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
+    <header class="mainHeader">
+      <a tabindex="1" href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+    </header>
     <div class="overlay hide">
       <div id="contact_modal">
         <div class="modal">
@@ -18,7 +21,6 @@
               <h2>Contactez-moi</h2>
               <img src="assets/icons/close.svg" onclick="closeModal()" />
             </div>
-            
             <span class="photographersNameModal"></span>
           </header>
           <form>
@@ -38,9 +40,6 @@
         </div>
       </div>
     </div>
-    <header class="mainHeader">
-      <a tabindex="1" href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
-    </header>
     <main id="main">
      
       <div class="photograph-header"></div>
@@ -58,14 +57,17 @@
       </div>
     </main>
     <div class="lightBox hide">
-      <div class="lightBoxButton">
-        <button class="prevButton">precedent</button>
-       <button class="nextButton">suivant</button>
-       <button class="closeButton">fermer</button>
-      </div>
-      <div class="lightBoxContainer">
+
+      <div class="blocButton">
+        <img src="/assets/icons/precedent.png" class="prevButton buttonLightBox"></img>
+        <div class="lightBoxContainer"></div>
+        <div class="blocButtonBis">
+          <img src="/assets/icons/close.png" class="closeButton buttonLightBox"></img>
+          <img src="/assets/icons/suivant.png" class="nextButton buttonLightBox"></img>
+        </div>
         
       </div>
+       
     </div>
   
     
