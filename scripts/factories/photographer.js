@@ -39,8 +39,8 @@ class Photographer{
                     ${this.tagline}
                 </p>
             </div>
-            <div tabindex="3" class="blocsCard">
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            <div class="blocsCard">
+            <button tabindex="3" class="contact_button" onclick="displayModal()">Contactez-moi</button>
             </div>
             <div tabindex="4" class="blocsCard">
             <img src="../assets/SamplePhotos/PhotographersIDPhotos/${this.portrait}">

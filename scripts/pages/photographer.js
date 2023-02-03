@@ -123,13 +123,23 @@ const updateLikes = (photographers) =>{
     const likes = document.querySelectorAll(".likes")
     likes.forEach(element => {
         element.addEventListener("click", function(){
-            let currentLikes = element.children[0].innerHTML
+            addLikes(element)
+    })
+        element.addEventListener("keydown",(event)=>{
+            var code = event.code
+            if(code == "Enter")
+            {
+                addLikes(element)
+            }
+        })
+    });
+}
+const addLikes = (element) =>{
+    let currentLikes = element.children[0].innerHTML
             currentLikes = parseInt(currentLikes)
             currentLikes ++;
             element.children[0].innerHTML = currentLikes;
             totalLikes(photographers);
-    })
-    });
 }
 
 const totalLikes = (photographer) =>{
