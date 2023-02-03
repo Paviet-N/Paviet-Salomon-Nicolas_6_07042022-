@@ -22,36 +22,50 @@ const updateGallery = (resMedia) =>{
         lightBox.innerHTML += media.createLightBox();
         });
 }
-
-const mediaEvent = () =>{
-    const media = document.querySelectorAll(".bloc-media img, .bloc-media video")
+const openMedia = (src) =>{
     const main = document.querySelector("main")
     const mainHeader = document.querySelector(".mainHeader")
-    media.forEach(mediaCliked =>{
-        mediaCliked.addEventListener("click",() => {
-            const mediaLightBox = document.querySelectorAll(".lightBoxContainer img, .lightBoxContainer video ")
-            const lightBox = document.querySelector(".lightBox")
+    const mediaLightBox = document.querySelectorAll(".lightBoxContainer img, .lightBoxContainer video ")
+    const lightBox = document.querySelector(".lightBox")
+    
             mediaLightBox.forEach(mediaHide =>{
-                if(mediaHide.src == mediaCliked.src)
+                if(mediaHide.src == src)
                 {
+                    
                     lightBox.classList.toggle("hide")
                     mediaHide.parentNode.classList.toggle("hide")
                     main.classList.toggle("hide")
                     mainHeader.classList.toggle("hide")
-                    document.addEventListener('keydown', nextPicture)
+                    document.addEventListener('keydown', eventKeyboardLightBox)
                 }
                 
             })
+}
+
+const mediaEvent = () =>{
+    const media = document.querySelectorAll(".bloc-media img, .bloc-media video")
+    
+    media.forEach(mediaCliked =>{
+        mediaCliked.addEventListener("click", () => {
+            openMedia(mediaCliked.src)
+        })    
+        
+        mediaCliked.addEventListener("keydown",(event) => {
+            var code = event.code
+            if(code == "Enter")
+            {
+                openMedia(mediaCliked.src)
+            }
         })
     })
 }
+
 /**
  * Trie les images.
  * @param {array} resMedia 
  */
-const sortMedia = (resMedia) =>{
+const sortMedia = (resMedia,photographers) =>{
     const mediaSort = document.querySelector("#media-sort")
-  
         switch (mediaSort.value)
         {
             case "popularite" :
@@ -98,14 +112,14 @@ const sortMedia = (resMedia) =>{
         }
             
     updateGallery(resMedia);
-    updateLikes();
-    totalLikes();
+    totalLikes(photographers);
+    updateLikes(photographers);
     nextLightBox();
     prevLightBox();
     closeLightBox();
 }
 
-const updateLikes = () =>{
+const updateLikes = (photographers) =>{
     const likes = document.querySelectorAll(".likes")
     likes.forEach(element => {
         element.addEventListener("click", function(){
@@ -113,41 +127,50 @@ const updateLikes = () =>{
             currentLikes = parseInt(currentLikes)
             currentLikes ++;
             element.children[0].innerHTML = currentLikes;
-            totalLikes();
+            totalLikes(photographers);
     })
     });
 }
 
-const totalLikes = () =>{
+const totalLikes = (photographer) =>{
     const likes = document.querySelectorAll(".likes")
     let totalLikes = 0
+    let price = photographer.price
     likes.forEach(element => {
        totalLikes += parseInt(element.children[0].innerHTML);
     })
     const totalLikesBloc = document.querySelector(".totalLikes")
-    totalLikesBloc.innerHTML = ` <p>${totalLikes}</p>`
+    totalLikesBloc.innerHTML = 
+    `   <p>
+            ${totalLikes}
+            <img src="/assets/icons/likesBlack.png"></img>
+        </p>
+        <p>${price}€ / jour</p>
+    `
 }
 
 const closeLightBox = () =>{
     const buttonClose = document.querySelector(".closeButton")
+    
+    buttonClose.addEventListener("click", eventLightBoxClosed)
+   
+}
+const eventLightBoxClosed = () =>{
     const blocLightBox = document.querySelectorAll(".blocLightBox")
     const lightBox = document.querySelector(".lightBox");
     const main = document.querySelector("main")
     const mainHeader = document.querySelector(".mainHeader")
 
-    buttonClose.addEventListener("click", function(){
-        blocLightBox.forEach(element => {
-            element.classList.add("hide")
-        })
-        lightBox.classList.add("hide")
-        main.classList.remove("hide")
-        mainHeader.classList.remove("hide")
-        document.removeEventListener('keydown',nextPicture)
+    blocLightBox.forEach(element => {
+        element.classList.add("hide")
     })
-
+    lightBox.classList.add("hide")
+    main.classList.remove("hide")
+    mainHeader.classList.remove("hide")
+    document.removeEventListener('keydown',eventKeyboardLightBox)
 }
 
-function nextPicture(event){
+function eventKeyboardLightBox(event){
         var code = event.code;
         const blocLightBox = document.querySelectorAll(".blocLightBox")
         if(code == "ArrowRight")
@@ -181,6 +204,10 @@ function nextPicture(event){
                         blocLightBox[blocLightBox.length-1].classList.remove("hide")
                     }
                 }
+            }
+            if (code == "Escape")
+            {
+                eventLightBoxClosed()
             }
 }
 
@@ -261,9 +288,9 @@ const init = async() => {
     const result = photographers.filter(photographer => photographer.id == id );
     const resMedia = media.filter(media => media.photographerId == id );
     displayCard(result[0]);
-    sortMedia(resMedia);
+    sortMedia(resMedia,result[0]);
     mediaEvent();
-    mediaSort.addEventListener("change" , () => {sortMedia(resMedia)
+    mediaSort.addEventListener("change" , () => {sortMedia(resMedia,result[0])
                                                 mediaEvent()})
 }
 

@@ -19,7 +19,7 @@ class Image {
                 <p>${this.title}</p>
                 <div tabindex="6" class="likes" aria-label="ajouter un like">
                     <p>${this.likes}</p>
-                    <i class="far fa-heart" aria-hidden="true"></i>
+                    <img src="/assets/icons/likes.png"></img>
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@ createHtml(){
             <p>${this.title}</p>
             <div tabindex="6" class="likes">
                 <p>${this.likes}</p>
-                <i class="far fa-heart" aria-hidden="true"></i>
+                <img src="/assets/icons/likes.png"></img>
             </div>
         </div>
     </div>

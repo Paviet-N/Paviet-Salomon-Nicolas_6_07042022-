@@ -2,6 +2,7 @@ body{
     width: 100%;
     height: 100%;
     position: relative; 
+    font-weight: 400;
 }
 main{
     width: 1240px;
@@ -82,11 +83,12 @@ main{
 .blocTopHeaderModal{
     display: flex;
     justify-content: space-between;
+
 }
 .photographersNameModal{
     font-size: 30px;
-    font-weight: 400;
 }
+
 form {
     display: flex;
     width: 90%;
@@ -140,6 +142,10 @@ label{
     border-radius: 5px;
     border-color: transparent;
 }
+select{
+    background-color: #901C1C;
+}
+
 .blocsCard{
     width: 33.3%;
     height: 100%;
@@ -149,7 +155,7 @@ label{
     align-items: center;
 }
 .blocsCard:focus{
-        color: #D3573C;
+    color: #D3573C;
 }
 .blocsCard h1{
     font-size: 64px;
@@ -193,8 +199,52 @@ label{
     height: 300px;
     object-fit: cover;
 }
-.hide{
-    display: none;
+.info-media{
+    display: flex;
+    justify-content: space-between;
+}
+.info-media p{
+    margin: 0;
+    color: #901C1C;
+    font-size: 24px;
+}
+.likes{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    height: 25px;
+
+}
+.likes p{
+    margin: 0;
+}
+.likes img{
+    width: 16px;
+    height: auto;
+    cursor: pointer;
+}
+.totalLikes{
+    position: fixed;
+    bottom: -3px;
+    right: 36px;
+    width: 376px;
+    height: 89px;
+    background-color: #DB8876;
+    color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+}
+.totalLikes p{
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+}
+.totalLikes img{
+    width: 16px;
+    height: auto;
 }
 .lightBox{
     width: 100%;
@@ -219,7 +269,10 @@ label{
 }
 .blocLightBox p{
     width: 100%;
-    text-align: center;
+    margin: 0;
+    text-align: start;
+    color: #901C1C;
+    font-weight: 400;
 }
 .blocButton{
     display: flex;
@@ -242,8 +295,11 @@ label{
     justify-content: center;
 }
 .closeButton{
-    margin-bottom: 213px;
+    margin-bottom: 214px;
 }
 .prevButton{
     margin-top: -50px;
+}
+.hide{
+    display: none;
 }
