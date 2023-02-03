@@ -153,7 +153,7 @@ const totalLikes = (photographer) =>{
     totalLikesBloc.innerHTML = 
     `   <p>
             ${totalLikes}
-            <img src="/assets/icons/likesBlack.png"></img>
+            <img src="assets/icons/likesBlack.png"></img>
         </p>
         <p>${price}€ / jour</p>
     `
