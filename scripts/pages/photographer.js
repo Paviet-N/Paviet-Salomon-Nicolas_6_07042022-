@@ -1,3 +1,5 @@
+let price;
+
 const getIdPhotographers = () => {
     let params = (new URL(document.location)).searchParams;
     let id = params.get('id');
@@ -134,18 +136,11 @@ const updateLikes = (photographers) =>{
         })
     });
 }
-const addLikes = (element) =>{
-    let currentLikes = element.children[0].innerHTML
-            currentLikes = parseInt(currentLikes)
-            currentLikes ++;
-            element.children[0].innerHTML = currentLikes;
-            totalLikes(photographers);
-}
 
-const totalLikes = (photographer) =>{
+
+const totalLikes = () =>{
     const likes = document.querySelectorAll(".likes")
     let totalLikes = 0
-    let price = photographer.price
     likes.forEach(element => {
        totalLikes += parseInt(element.children[0].innerHTML);
     })
@@ -157,6 +152,14 @@ const totalLikes = (photographer) =>{
         </p>
         <p>${price}€ / jour</p>
     `
+}
+
+const addLikes = (element) =>{
+    let currentLikes = element.children[0].innerHTML
+            currentLikes = parseInt(currentLikes)
+            currentLikes ++;
+            element.children[0].innerHTML = currentLikes;
+            totalLikes();
 }
 
 const closeLightBox = () =>{
@@ -297,6 +300,7 @@ const init = async() => {
     const mediaSort = document.querySelector("#media-sort")
     const result = photographers.filter(photographer => photographer.id == id );
     const resMedia = media.filter(media => media.photographerId == id );
+    price = result[0].price
     displayCard(result[0]);
     sortMedia(resMedia,result[0]);
     mediaEvent();
