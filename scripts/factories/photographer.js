@@ -15,7 +15,7 @@ class Photographer{
         <div>
         <a href ="photographer.html?id=${this.id}">
         <article>
-            <img src="../assets/SamplePhotos/PhotographersIDPhotos/${this.portrait}">
+            <img src="assets/SamplePhotos/PhotographersIDPhotos/${this.portrait}">
             <h2>${this.name}</h2>
         </article>
         </a>
@@ -43,7 +43,7 @@ class Photographer{
             <button tabindex="3" class="contact_button" onclick="displayModal()">Contactez-moi</button>
             </div>
             <div tabindex="4" class="blocsCard">
-            <img src="../assets/SamplePhotos/PhotographersIDPhotos/${this.portrait}">
+            <img src="assets/SamplePhotos/PhotographersIDPhotos/${this.portrait}">
             </div>
         
         `
