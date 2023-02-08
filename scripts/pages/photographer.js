@@ -66,11 +66,12 @@ const mediaEvent = () =>{
  * Trie les images.
  * @param {array} resMedia 
  */
-const sortMedia = (resMedia,photographers) =>{
-    const mediaSort = document.querySelector("#media-sort")
-        switch (mediaSort.value)
+const sortMedia = (resMedia,photographers,optionSelected) =>{
+
+    console.log(optionSelected)
+        switch (optionSelected)
         {
-            case "popularite" :
+            case "Popularité" :
                 resMedia.sort(function(a,b){
                     if(parseInt(a.likes) < parseInt(b.likes))
                     {
@@ -83,7 +84,7 @@ const sortMedia = (resMedia,photographers) =>{
                     return 0;
                 });
                 break;
-            case "date" :
+            case "Date" :
                 resMedia.sort(function(a,b){
                     if(a.date < b.date)
                     {
@@ -96,7 +97,7 @@ const sortMedia = (resMedia,photographers) =>{
                     return 0;
                 });
                 break;
-            case "title" :
+            case "Titre" :
                 resMedia.sort(function(a,b){
                     if(a.title.toLowerCase() < b.title.toLowerCase())
                     {
@@ -292,20 +293,66 @@ function closeModal() {
     overlay.classList.add("hide")
 }
 
+const eventSelect = (resMedia,photographers) =>{
+
+    let option_selected ="Popularité"
+    let option1 = "Date"
+    let option2 = "Titre"
+    const custom_select_closed = document.querySelector(".custom-select-closed")
+    const select_option_selected = document.querySelector(".select_option_selected")
+    const select_option1 = document.querySelector(".select_option1")
+    const select_option2 = document.querySelector(".select_option2")
+    const select_option1_text = document.querySelector(".textOP1")
+    const select_option2_text = document.querySelector(".textOP2")
+
+    select_option_selected.innerHTML =`${option_selected}<span><img class="select_vector" src="assets/icons/Vector.png" alt="fleche"></span>`
+    select_option1_text.innerHTML = `${option1}`
+    select_option2_text.innerHTML = `${option2}`
+
+    select_option_selected.addEventListener("click", () => {
+        custom_select_closed.classList.toggle("custom-select")
+        select_option1.classList.toggle("hide")
+        select_option2.classList.toggle("hide")
+        const select_vector = document.querySelector(".select_vector")
+        select_vector.classList.toggle("select_vector_rotate")
+    }) 
+
+    select_option1.addEventListener("click", () => {
+        let oldSelected = option_selected
+        option_selected = select_option1_text.innerHTML
+        select_option_selected.innerHTML =`${option_selected}<span><img class="select_vector" src="assets/icons/Vector.png" alt="fleche"></span>`
+        select_option1_text.innerHTML = `${oldSelected}`
+        custom_select_closed.classList.toggle("custom-select")
+        select_option1.classList.toggle("hide")
+        select_option2.classList.toggle("hide")
+        sortMedia(resMedia,photographers,option_selected);
+        mediaEvent();
+    }) 
+    select_option2.addEventListener("click", () => {
+        let oldSelected = option_selected
+        option_selected = select_option2_text.innerHTML
+        select_option_selected.innerHTML =`${option_selected}<span><img class="select_vector" src="assets/icons/Vector.png" alt="fleche"></span>`
+        select_option2_text.innerHTML = `${oldSelected}`
+        custom_select_closed.classList.toggle("custom-select")
+        select_option1.classList.toggle("hide")
+        select_option2.classList.toggle("hide")
+        sortMedia(resMedia,photographers,option_selected);
+        mediaEvent();
+    })    
+
+    return option_selected
+}
 
 const init = async() => {
     const id = getIdPhotographers();
     const { photographers } = await getPhotographers();
     const { media } = await getPhotographers();
-    const mediaSort = document.querySelector("#media-sort")
     const result = photographers.filter(photographer => photographer.id == id );
     const resMedia = media.filter(media => media.photographerId == id );
     price = result[0].price
     displayCard(result[0]);
-    sortMedia(resMedia,result[0]);
+    sortMedia(resMedia,result[0],eventSelect(resMedia,result[0]));
     mediaEvent();
-    mediaSort.addEventListener("change" , () => {sortMedia(resMedia,result[0])
-                                                mediaEvent()})
 }
 
 init();

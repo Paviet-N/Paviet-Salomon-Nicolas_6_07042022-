@@ -129,23 +129,73 @@ label{
     font-size: 18px;
     font-weight: 700;
     margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-#media-sort{
-    margin-bottom: 40px;
+.blockSelect{
+    display: flex;
+    position: absolute;
+    height: 70px;
+}
+
+.custom-select-closed{
     width: 170px;
-    height: 69px;
-    text-align: center;
-    font-size: 18px;
+    height: 70px;
     font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
     color: white;
     background-color:rgba(144, 28, 28, 1);
     border-radius: 5px;
     border-color: transparent;
-}
-select{
-    background-color: #901C1C;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
+.custom-select{
+    width: 170px;
+    height: 170px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    color: white;
+    background-color:rgba(144, 28, 28, 1);
+    border-radius: 5px;
+    border-color: transparent;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.select_option_selected{
+    width: 130px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select_option1 , .select_option2{
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-top: 1px white solid;
+}
+.textOP1 , .textOP2{
+    margin-left: 10px;
+}
+.select_vector{
+    transform:rotate(0deg);
+}
+.select_vector_rotate{
+    transform:rotate(180deg);
+}
 .blocsCard{
     width: 33.3%;
     height: 100%;
@@ -181,6 +231,7 @@ select{
 }
 
 .photograph-media{
+    margin-top: 150px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
